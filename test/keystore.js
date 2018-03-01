@@ -169,6 +169,7 @@ describe("Keystore", function() {
         var deserKS = keyStore.deserialize(serKS)
 
         // Retains all attributes properly
+        delete origKS.salt;
         expect(deserKS).to.deep.equal(origKS)
         done();
       })
@@ -193,6 +194,7 @@ describe("Keystore", function() {
         var deserKS = keyStore.deserialize(serKS)
 
         // Retains all attributes properly
+        delete origKS.salt;
         expect(deserKS).to.deep.equal(origKS)
         done();
       })
