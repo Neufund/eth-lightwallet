@@ -10,7 +10,7 @@
   "scripts": {
     "build-js": "browserify index.js --s lightwallet -g [ babelify --presets [ es2015 react ] ] | uglifyjs -c > dist/lightwallet.min.js",
     "build-dev": "browserify index.js -o dist/lightwallet.js --s lightwallet -g [ babelify --presets [ es2015 react ] ]",
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha --require @babel/register './test/**/*.spec.js'"
   },
   "keywords": [
     "ethereum",
@@ -59,21 +59,23 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "bitcore-lib": "^8.3.3",
-    "bitcore-mnemonic": "^8.3.3",
+    "bitcore-lib": "^8.12.0",
+    "bitcore-mnemonic": "^8.12.0",
     "crypto-js": "^3.1.9-1",
-    "ethereumjs-tx": "^1.3.7",
+    "ethereumjs-tx": "^2.1.0",
     "ethereumjs-util": "^6.1.0",
     "scrypt-async": "^2.0.1",
     "tweetnacl": "^1.0.1",
     "tweetnacl-util": "^0.15.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
     "async": "^1.4.2",
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "bluebird": "^3.3.1",
@@ -81,7 +83,7 @@
     "chai": "^3.0.0",
     "eslint": "^4.18.1",
     "hooked-web3-provider": "christianlundkvist/hooked-web3-provider#updates_web3_14",
-    "mocha": "^2.2.5",
+    "mocha": "^6.2.2",
     "patch-package": "^6.0.7",
     "uglify-js": "^2.7.2"
   }
